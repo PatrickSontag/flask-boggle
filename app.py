@@ -8,4 +8,11 @@ boggle_game = Boggle()
 
 @app.route("/")
 def home():
-    return render_template("home.html")
+
+    board = boggle_game.make_board()
+    # session['board'] = board
+    # print(session['board'])
+    print("board: ", board)
+    print("session: ", session)
+
+    return render_template("home.html", board=board)
