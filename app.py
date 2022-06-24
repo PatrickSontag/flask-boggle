@@ -11,8 +11,7 @@ def home():
 
     board = boggle_game.make_board()
     # session['board'] = board
-    # print(session['board'])
-    print("board: ", board)
-    print("session: ", session)
+    # print("board: ", board)
+    # print("session: ", session)
 
     return render_template("home.html", board=board)
