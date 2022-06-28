@@ -11,13 +11,11 @@ boggle_game = Boggle()
 def home():
     """Generate and show form to start game"""
 
-    board = boggle_game.make_board()
-    session['board'] = board
     # print("board: ", board)
     # print("session: ", session)
     print("home")
 
-    return render_template("home.html", board=board)
+    return render_template("home.html")
 
 @app.route("/begin", methods=["POST"])
 def begin():
@@ -32,5 +30,8 @@ def begin():
 def new_game():
     """Show new game board"""
     
+    board = boggle_game.make_board()
+    session['board'] = board
     print("new game")
-    return render_template("new_game.html")
+
+    return render_template("new_game.html", board=board)

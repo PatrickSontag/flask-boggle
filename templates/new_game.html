@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+<h1>BOGGLE</h1>
 
 <table id="b-table">
     <tbody>
@@ -13,10 +14,14 @@
     </tbody>
 </table>
 
-<form>
-    <h2>Words</h2>
-    <input placeholder="word to guess">
+<form method="POST" class="add-word">
+    <h2></h2>
+    <input placeholder="word" autofocus>
     <button>Submit</button>
 </form>
+
+<script>
+    let game = new BoggleGame("boggle", 60);
+</script>
 
 {% endblock %}
