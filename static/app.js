@@ -1,17 +1,17 @@
-class BoggleGame {
 
-    constructor(boardId, secs = 60) {
-        this.secs = secs; // game length
-        this.showTimer();
-    
-        this.score = 0;
-        this.words = new Set();
-        this.board = $("#" + boardId);
-    
-        // every 1000 msec, "tick"
-        this.timer = setInterval(this.tick.bind(this), 1000);
-    
-        $(".add-word", this.board).on("submit", this.handleSubmit.bind(this));
-    }
+async function handleSubmit(evt){
+    evt.preventDefault()
+    // const resp = await axios.get("/check-word", { params: { word: word }});
 
+
+    let word = $("word").val();
+
+    // async function get_input(){
+    //     let response = await axios.get("/submit-guess");
+    // }
 }
+
+let $submit_form = $("#submit-form");
+
+$("$submit_form").on("submit", handleSubmit())
+
