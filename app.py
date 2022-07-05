@@ -42,11 +42,19 @@ def new_game():
     return render_template("new_game.html", board=board)
 
 @app.route("/check_word", methods=["POST"])
+def check_word_post():
+    print("check word POST")
+    return "check word post"
+
+@app.route("/check_word")
 def check_word():
 
     print("check word")
-    word = request.form["word"]
+    word = request.args["word"]
+    print("word:", word)
+    session['guesses'].append(word)
+    print("session['guesses']:", session["guesses"])
     board = session["board"]
     response = boggle_game.check_valid_word(board, word)
 
-    return render_template("check_word.html", response=response)
+    return jsonify({'result': response})

@@ -14,14 +14,19 @@
     </tbody>
 </table>
 
-<form action="/check_word" method="POST" class="add-word" id="submit-form">
+
+<form method="POST" action="/check_word" class="add-word" id="submit-form">
     <h2></h2>
-    <input placeholder="word" name="word" autofocus>
+    <input placeholder="word" name="word" id="ch-word" autofocus>
     <button>Submit</button>
 </form>
 
+<div class="guesses">
+    <h3>Guesses</h3>
+</div>
+
 <script>
-    let game = new BoggleGame("boggle", 60);
+    // let game = new BoggleGame("boggle", 60);
 </script>
 
 {% endblock %}

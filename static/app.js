@@ -1,17 +1,17 @@
+const $guesses = $(".guesses");
 
-async function handleSubmit(evt){
-    evt.preventDefault()
-    // const resp = await axios.get("/check-word", { params: { word: word }});
+$("#submit-form").on("submit", async function(e) {
+    e.preventDefault();
+    console.log("prevent default")
 
+    let $word = $("#ch-word").val();
+    console.log($word);
+    const resp = await axios.get("/check_word", { params: { word: $word }});
+    console.log(resp);
+    console.log("result:", resp.data.result)
 
-    let word = $("word").val();
-
-    // async function get_input(){
-    //     let response = await axios.get("/submit-guess");
-    // }
-}
-
-let $submit_form = $("#submit-form");
-
-$("$submit_form").on("submit", handleSubmit())
-
+    console.log("$guesses", $guesses);
+    // $guesses.innerHTML = "";
+    $guesses.append(`${$word}<br>`);
+    $("#ch-word").val('');
+})
