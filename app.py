@@ -24,22 +24,25 @@ def home():
 
 @app.route("/begin", methods=["POST"])
 def begin():
-    """Redirect to new game"""
+    """Redirect to game"""
 
     session['guesses'] = []
     print("begin")
 
-    return redirect ("/new_game")
+    return redirect ("/game")
 
-@app.route("/new_game")
-def new_game():
-    """Show new game board"""
+@app.route("/game")
+# @app.route("/game", methods=["POST"])
+def game():
+    """Show game board"""
     
     board = boggle_game.make_board()
     session["board"] = board
-    print("new game")
+    print("game")
 
-    return render_template("new_game.html", board=board)
+    return render_template("game.html", board=board)
+    # return jsonify(board)
+    # return redirect ("/", board=board)
 
 @app.route("/check_word", methods=["POST"])
 def check_word_post():

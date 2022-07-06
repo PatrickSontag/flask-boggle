@@ -3,7 +3,35 @@
 <h1>BOGGLE</h1>
 
 <form action="/begin" method="POST">
+<!-- <form action="/game" method="POST"> -->
     <button>New Game</button>
     <h2></h2>
 </form>
+
+<!-- <table id="b-table">
+    <tbody>
+        {% for row in board %}
+        <tr>
+            {% for cell in row %}
+                <td>{{ cell }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<form method="POST" action="/check_word" class="add-word" id="submit-form">
+    <h2></h2>
+    <input placeholder="word" name="word" id="ch-word" autofocus>
+    <button>Submit</button>
+</form>
+
+<div class="guesses">
+    <h3>Guesses</h3>
+</div>
+
+<script>
+    // let game = new BoggleGame("boggle", 60);
+</script> -->
 {% endblock %}
